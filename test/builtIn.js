@@ -14,7 +14,7 @@ describe("BuiltIn Intents", function () {
 		alexaTest.test([
 			{
 				request: alexaTest.getIntentRequest("AMAZON.HelpIntent"),
-				says: "You can say hello to me?", repromptsNothing: false, shouldEndSession: false
+				says: "You can say hello to me!", repromptsNothing: false, shouldEndSession: false
 			}
 		]);
 	});

@@ -13,7 +13,7 @@ describe("Hello World Skill", function () {
 		alexaTest.test([
 			{
 				request: alexaTest.getLaunchRequest(),
-				saysLike: "Welcome to the Alexa Skills Kit, you can say hello?", repromptsNothing: false, shouldEndSession: false
+				saysLike: "Welcome to the Alexa Skills Kit, you can say hello!", repromptsNothing: false, shouldEndSession: false
 			}
 		]);
 	});
