@@ -1,6 +1,8 @@
 
 const alexaTest = require('alexa-skill-test-framework');
 
+alexaTest.setDynamoDBTable('helloTable', 'userId', 'mapAttr');
+
 // initialize the testing framework
 alexaTest.initialize(
 	require('../dist/custom/index.js'),

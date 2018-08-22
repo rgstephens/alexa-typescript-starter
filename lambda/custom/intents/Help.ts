@@ -7,6 +7,7 @@ export const Help: RequestHandler = {
         return IsIntent(handlerInput, IntentTypes.Help);
     },
     handle(handlerInput) {
+        console.log("HelpIntent");
         const { t } = GetRequestAttributes(handlerInput);
 
         const speechText = t(Strings.HELP_MSG);

@@ -1,6 +1,8 @@
 
 const alexaTest = require('alexa-skill-test-framework');
 
+alexaTest.setDynamoDBTable('helloTable', 'userId', 'mapAttr');
+
 // initialize the testing framework
 alexaTest.initialize(
 	require('../dist/custom/index.js'),
@@ -14,6 +16,30 @@ describe("Hello World Skill", function () {
 			{
 				request: alexaTest.getLaunchRequest(),
 				saysLike: "Welcome to the Alexa Skills Kit, you can say hello!", repromptsNothing: false, shouldEndSession: false
+			}
+		]);
+	});
+
+	// tests the behavior of the skill's LaunchRequest
+	describe("LaunchRequestWithProfile", function () {
+		alexaTest.test([
+			{
+				request: alexaTest.getLaunchRequest(),
+				saysLike: "Welcome to the Alexa Skills Kit, you can say hello!", repromptsNothing: false, shouldEndSession: false,
+				withStoredAttributes: {
+					profile: {
+						email: "donald.knuth@stanford.edu",
+						mobile: "415-555-1212",
+						location: {
+						  address: {
+							city: "Stanford",
+							state: "CA",
+							zip: "96001"
+						  },
+						  timezone: "PST"
+						}
+					}
+				}
 			}
 		]);
 	});
